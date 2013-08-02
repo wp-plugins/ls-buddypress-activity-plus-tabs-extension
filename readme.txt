@@ -22,7 +22,6 @@ Adds tabs in groups for Buddypress activity plus uploaded videos, images, links.
 
 
 == Screenshots ==
-
 1. New tabs (Links, Videos, Images) in group navigation bar
 
 == Changelog ==
