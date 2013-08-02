@@ -1,7 +1,7 @@
 <?php
 /**
  * @author Stergatu Eleni 
- * @version 1, 30/7/2013
+ * @version 2, 2/8/2013
  * Adds tabs in group for Links, Images and Videos uploaded via buddypress activity plus plugin 
  */
 if (class_exists('BP_Group_Extension')) : // Recommended, to prevent problems during upgrade or when Groups are disabled
