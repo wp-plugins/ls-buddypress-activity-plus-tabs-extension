@@ -1,0 +1,9 @@
+li#nav-links-groups-li,li#nav-links-personal-li {
+   background: url(../images/chain_16x16.png) no-repeat 87% 52%;
+}
+li#nav-videos-groups-li,li#nav-videos-personal-li {
+   background: url(../images/16-video-square_16x16.png) no-repeat 87% 52%;
+}
+li#nav-images-groups-li,li#nav-images-personal-li {
+   background: url(../images/image_spearmint_16x16.png) no-repeat 87% 52%;
+}
