@@ -22,9 +22,11 @@ Adds tabs in groups for Buddypress activity plus uploaded videos, images, links.
 
 
 == Screenshots ==
+
 1. New tabs (Links, Videos, Images) in group navigation bar
 
 == Changelog ==
+
 = 2.0 (2.8.2013) =
 * Change visibility of tabs to private
 * Fix a bug which displayed the tabs on the create group steps
