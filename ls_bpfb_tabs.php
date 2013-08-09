@@ -33,7 +33,7 @@ if (class_exists('BP_Group_Extension')) : // Recommended, to prevent problems du
 
             if ($bp->groups->current_group) {
                 $num = !empty($activities_template->activity_count) ? $activities_template->activity_count : '0';
-                $this->nav_item_name = $this->name . ' <span>(' . $num . ')</span>';
+                $this->nav_item_name = $this->name . ' <span>' . $num . '</span>';
                 $this->nav_item_position = 32;
             }
 
@@ -137,7 +137,7 @@ if (class_exists('BP_Group_Extension')) : // Recommended, to prevent problems du
 
             if ($bp->groups->current_group) {
                 $num = !empty($activities_template->activity_count) ? $activities_template->activity_count : '0';
-                $this->nav_item_name = $this->name . ' <span>(' . $num . ')</span>';
+                $this->nav_item_name = $this->name . ' <span>' . $num . '</span>';
                 $this->nav_item_position = 34;
             }
 
@@ -151,7 +151,7 @@ if (class_exists('BP_Group_Extension')) : // Recommended, to prevent problems du
             <div class="info-group">
                      <h4><?php echo esc_attr($this->name) ?></h4>
                 <?php do_action('bp_before_activity_loop'); ?>
-                <?php // add_thickbox(); ?>
+              
                 <?php if (bp_has_activities('search_terms=bpfb_video')) :
                     ?>
 
@@ -237,7 +237,7 @@ if (class_exists('BP_Group_Extension')) : // Recommended, to prevent problems du
 
             if ($bp->groups->current_group) {
                 $num = !empty($activities_template->activity_count) ? $activities_template->activity_count : '0';
-                $this->nav_item_name = $this->name . ' <span>(' . $num . ')</span>';
+                $this->nav_item_name = $this->name . ' <span>' . $num . '</span>';
                 $this->nav_item_position = 33;
             }
 
@@ -246,16 +246,12 @@ if (class_exists('BP_Group_Extension')) : // Recommended, to prevent problems du
         }
 
         
-        /** 
-         * @version 2
-         * Add thickbox 
-         */
+        
         function display() {
             ?>
             <div class="info-group">
                 <h4><?php echo esc_attr($this->name) ?></h4>
                 <?php do_action('bp_before_activity_loop'); ?>
-                <?php add_thickbox(); ?>
                 <?php if (bp_has_activities('search_terms=bpfb_image')) :
                     ?>
 
