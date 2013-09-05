@@ -4,7 +4,7 @@ Donate link:
 Tags: Buddypress, tabs, activity
 Requires at least: 3.4 and BP 1.6
 Tested up to: 3.5.2 and BP BP 1.7.2
-Stable tag: 2.2
+Stable tag: 2.3
 License:  GNU General Public License 3.0 or newer (GPL) 
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -26,6 +26,9 @@ Adds tabs in groups for Buddypress activity plus uploaded videos, images, links.
 1. New tabs (Links, Videos, Images) in group navigation bar
 
 == Changelog ==
+= 2.3 (5.9.2013) =
+* Fix a bug which broke the RSS feeds
+
 = 2.2 (13.8.2013) =
 * Fix a bug which occured when checking if buddypress activity plugin active
 

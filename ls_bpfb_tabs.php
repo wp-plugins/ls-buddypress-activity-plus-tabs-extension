@@ -34,88 +34,83 @@ if (class_exists('BP_Group_Extension')) : // Recommended, to prevent problems du
             if ($bp->groups->current_group) {
                 $num = !empty($activities_template->activity_count) ? $activities_template->activity_count : '0';
                 $this->nav_item_name = $this->name . ' <span>' . $num . '</span>';
-                $this->nav_item_position = 32;
+                $this->nav_item_position = 52;
             }
 
             $this->admin_name = !empty($nav_page_name) ? $nav_page_name : __("Links");
-
             $this->admin_slug = 'links';
         }
 
         function display() {
             ?>
-            <div class="info-group">
-                <h4><?php echo esc_attr($this->name) ?></h4>
-                <?php do_action('bp_before_activity_loop'); ?>
-                <?php if (bp_has_activities('search_terms=bpfb_link')) :
+                        <div class="info-group">
+                <h4><?php echo esc_attr($this->name); ?></h4>
+                <?php
+                do_action('bp_before_activity_loop');
+                if (bp_has_activities('search_terms=bpfb_link')) :
+                    /* Show pagination if JS is not enabled, since the "Load More" link will do nothing */
                     ?>
+                <noscript>
+                                <div class="pagination">
+                                    <div class="pag-count"><?php bp_activity_pagination_count(); ?></div>
+                                    <div class="pagination-links"><?php bp_activity_pagination_links(); ?></div>
+                                </div>
+                                </noscript>
+                                <?php if (empty($_POST['page'])) : ?>
 
-                    <?php /* Show pagination if JS is not enabled, since the "Load More" link will do nothing */ ?>
-                    <noscript>
-                    <div class="pagination">
-                        <div class="pag-count"><?php bp_activity_pagination_count(); ?></div>
-                        <div class="pagination-links"><?php bp_activity_pagination_links(); ?></div>
-                    </div>
-                    </noscript>
+                    <ul id="activity-stream" class="activity-list item-list">
 
-                    <?php if (empty($_POST['page'])) : ?>
+                                                <?php
+                                            endif;
+                                            while (bp_activities()) : bp_the_activity();
+                                                locate_template(array('activity/entry.php'), true, false);
+                                            endwhile;
+                                            if (bp_activity_has_more_items()) :
+                                                ?>
 
-                        <ul id="activity-stream" class="activity-list item-list">
+                                                                    <li class="load-more">
+                                                    <a href="#more"><?php _e('Load More', 'buddypress'); ?></a>
+                                                </li>
 
-                        <?php endif; ?>
+                                                <?php
+                                            endif;
+                                            if (empty($_POST['page'])) :
+                                                ?>
 
-                        <?php while (bp_activities()) : bp_the_activity(); ?>
+                                                                </ul>
+                                            <?php
+                                        endif;
+                                    else :
+                                        ?>
 
-                            <?php locate_template(array('activity/entry.php'), true, false); ?>
+                                                    <div id="message" class="info">
+                                        <p><?php _e('Sorry, there was no activity found. Please try a different filter.', 'buddypress'); ?></p>
+                                    </div>
 
-                        <?php endwhile; ?>
+                                <?php
+                                endif;
+                                do_action('bp_after_activity_loop');
+                                ?>
 
-                        <?php if (bp_activity_has_more_items()) : ?>
+                    <form action="" name="activity-loop-form" id="activity-loop-form" method="post">
 
-                            <li class="load-more">
-                                <a href="#more"><?php _e('Load More', 'buddypress'); ?></a>
-                            </li>
+                                <?php wp_nonce_field('activity_filter', '_wpnonce_activity_filter'); ?>
 
-                        <?php endif; ?>
+                                        </form>
+                        </div>
+                        <?php
+                    }
 
-                        <?php if (empty($_POST['page'])) : ?>
+                }
 
-                        </ul>
+                bp_register_group_extension('BP_activity_plus_links_tab_Extension');
 
-                    <?php endif; ?>
+                class BP_activity_plus_videos_tab_Extension extends BP_Group_Extension {
 
-                <?php else : ?>
-
-                    <div id="message" class="info">
-                        <p><?php _e('Sorry, there was no activity found. Please try a different filter.', 'buddypress'); ?></p>
-                    </div>
-
-                <?php endif; ?>
-
-                <?php do_action('bp_after_activity_loop'); ?>
-
-                <form action="" name="activity-loop-form" id="activity-loop-form" method="post">
-
-                    <?php wp_nonce_field('activity_filter', '_wpnonce_activity_filter'); ?>
-
-                </form>
-            </div>
-            <?php
-        }
-
-    }
-
-    bp_register_group_extension('BP_activity_plus_links_tab_Extension');
-    ?>
-
-    <?php
-
-    class BP_activity_plus_videos_tab_Extension extends BP_Group_Extension {
-
-        var $visibility = 'private';
-        var $format_notification_function;
+                    var $visibility = 'private';
+                    var $format_notification_function;
         var $enable_edit_item = false;
-         var $enable_create_step = false;
+        var $enable_create_step = false;
         var $admin_metabox_context = 'side'; // The context of your admin metabox. See add_meta_box()
         var $admin_metabox_priority = 'default'; // The priority of your admin metabox. See add_meta_box()
 
@@ -138,86 +133,83 @@ if (class_exists('BP_Group_Extension')) : // Recommended, to prevent problems du
             if ($bp->groups->current_group) {
                 $num = !empty($activities_template->activity_count) ? $activities_template->activity_count : '0';
                 $this->nav_item_name = $this->name . ' <span>' . $num . '</span>';
-                $this->nav_item_position = 34;
+                $this->nav_item_position = 54;
             }
 
             $this->admin_name = !empty($nav_page_name) ? $nav_page_name : __("Videos");
-            ;
             $this->admin_slug = 'videos';
         }
 
         function display() {
             ?>
-            <div class="info-group">
-                     <h4><?php echo esc_attr($this->name) ?></h4>
-                <?php do_action('bp_before_activity_loop'); ?>
-              
-                <?php if (bp_has_activities('search_terms=bpfb_video')) :
-                    ?>
+                        <div class="info-group">
+                <h4><?php echo esc_attr($this->name); ?></h4>
+                <?php
+                do_action('bp_before_activity_loop');
+                if (bp_has_activities('search_terms=bpfb_video')) :
+                    /* Show pagination if JS is not enabled, since the "Load More" link will do nothing */
+                                ?>
+                                    <noscript>
+                                    <div class="pagination">
+                                        <div class="pag-count"><?php bp_activity_pagination_count(); ?></div>
+                                        <div class="pagination-links"><?php bp_activity_pagination_links(); ?></div>
+                                    </div>
+                                    </noscript>
 
-                    <?php /* Show pagination if JS is not enabled, since the "Load More" link will do nothing */ ?>
-                    <noscript>
-                    <div class="pagination">
-                        <div class="pag-count"><?php bp_activity_pagination_count(); ?></div>
-                        <div class="pagination-links"><?php bp_activity_pagination_links(); ?></div>
-                    </div>
-                    </noscript>
+                                    <?php if (empty($_POST['page'])) : ?>
+                                        <ul id="activity-stream" class="activity-list item-list">
+                                            <?php
+                                        endif;
+                                        while (bp_activities()) : bp_the_activity();
+                                            locate_template(array('activity/entry.php'), true, false);
+                                        endwhile;
+                                        if (bp_activity_has_more_items()) :
+                                            ?>
 
-                    <?php if (empty($_POST['page'])) : ?>
+                                                                    <li class="load-more">
+                                                    <a href="#more"><?php _e('Load More', 'buddypress'); ?></a>
+                                                </li>
 
-                        <ul id="activity-stream" class="activity-list item-list">
+                                                <?php
+                                            endif;
+                                            if (empty($_POST['page'])) :
+                                                ?>
 
-                        <?php endif; ?>
+                                                                </ul>
 
-                        <?php while (bp_activities()) : bp_the_activity(); ?>
+                                        <?php
+                                    endif;
+                                else :
+                                    ?>
 
-                            <?php locate_template(array('activity/entry.php'), true, false); ?>
+                                                    <div id="message" class="info">
+                                        <p><?php _e('Sorry, there was no activity found. Please try a different filter.', 'buddypress'); ?></p>
+                                    </div>
 
-                        <?php endwhile; ?>
+                                <?php
+                                endif;
+                                do_action('bp_after_activity_loop');
+                                ?>
 
-                        <?php if (bp_activity_has_more_items()) : ?>
+                    <form action="" name="activity-loop-form" id="activity-loop-form" method="post">
 
-                            <li class="load-more">
-                                <a href="#more"><?php _e('Load More', 'buddypress'); ?></a>
-                            </li>
+                                <?php wp_nonce_field('activity_filter', '_wpnonce_activity_filter'); ?>
 
-                        <?php endif; ?>
+                                        </form>
+                        </div>
+                        <?php
+                    }
 
-                        <?php if (empty($_POST['page'])) : ?>
+                }
 
-                        </ul>
+                bp_register_group_extension('BP_activity_plus_videos_tab_Extension');
 
-                    <?php endif; ?>
+                class BP_activity_plus_images_tab_Extension extends BP_Group_Extension {
 
-                <?php else : ?>
-
-                    <div id="message" class="info">
-                        <p><?php _e('Sorry, there was no activity found. Please try a different filter.', 'buddypress'); ?></p>
-                    </div>
-
-                <?php endif; ?>
-
-                <?php do_action('bp_after_activity_loop'); ?>
-
-                <form action="" name="activity-loop-form" id="activity-loop-form" method="post">
-
-                    <?php wp_nonce_field('activity_filter', '_wpnonce_activity_filter'); ?>
-
-                </form>
-            </div>
-            <?php
-        }
-
-    }
-
-    bp_register_group_extension('BP_activity_plus_videos_tab_Extension');
-
-    class BP_activity_plus_images_tab_Extension extends BP_Group_Extension {
-
-        var $visibility = 'private';
-        var $format_notification_function;
+                    var $visibility = 'private';
+                    var $format_notification_function;
         var $enable_edit_item = false;
-         var $enable_create_step = false;
+        var $enable_create_step = false;
         var $admin_metabox_context = 'side'; // The context of your admin metabox. See add_meta_box()
         var $admin_metabox_priority = 'default'; // The priority of your admin metabox. See add_meta_box()
 
@@ -238,24 +230,23 @@ if (class_exists('BP_Group_Extension')) : // Recommended, to prevent problems du
             if ($bp->groups->current_group) {
                 $num = !empty($activities_template->activity_count) ? $activities_template->activity_count : '0';
                 $this->nav_item_name = $this->name . ' <span>' . $num . '</span>';
-                $this->nav_item_position = 33;
+                $this->nav_item_position = 53;
             }
 
             $this->admin_name = !empty($nav_page_name) ? $nav_page_name : __("Images");
             $this->admin_slug = 'images';
         }
 
-        
-        
         function display() {
             ?>
-            <div class="info-group">
+                        <div class="info-group">
                 <h4><?php echo esc_attr($this->name) ?></h4>
-                <?php do_action('bp_before_activity_loop'); ?>
-                <?php if (bp_has_activities('search_terms=bpfb_image')) :
-                    ?>
+                <?php
+                do_action('bp_before_activity_loop');
+                if (bp_has_activities('search_terms=bpfb_image')) :
 
-                    <?php /* Show pagination if JS is not enabled, since the "Load More" link will do nothing */ ?>
+                    /* Show pagination if JS is not enabled, since the "Load More" link will do nothing */
+                    ?>
                     <noscript>
                     <div class="pagination">
                         <div class="pag-count"><?php bp_activity_pagination_count(); ?></div>
@@ -263,60 +254,60 @@ if (class_exists('BP_Group_Extension')) : // Recommended, to prevent problems du
                     </div>
                     </noscript>
 
-                    <?php if (empty($_POST['page'])) : ?>
+                                    <?php if (empty($_POST['page'])) : ?>
 
-                        <ul id="activity-stream" class="activity-list item-list">
+                    <ul id="activity-stream" class="activity-list item-list">
 
-                        <?php endif; ?>
+                                            <?php endif; ?>
 
-                        <?php while (bp_activities()) : bp_the_activity(); ?>
+                                            <?php while (bp_activities()) : bp_the_activity(); ?>
 
-                            <?php locate_template(array('activity/entry.php'), true, false); ?>
+                                                <?php locate_template(array('activity/entry.php'), true, false); ?>
 
-                        <?php endwhile; ?>
+                                            <?php endwhile; ?>
 
-                        <?php if (bp_activity_has_more_items()) : ?>
+                                            <?php if (bp_activity_has_more_items()) : ?>
 
-                            <li class="load-more">
-                                <a href="#more"><?php _e('Load More', 'buddypress'); ?></a>
-                            </li>
+                                                                    <li class="load-more">
+                                                    <a href="#more"><?php _e('Load More', 'buddypress'); ?></a>
+                                                </li>
 
-                        <?php endif; ?>
+                                            <?php endif; ?>
 
-                        <?php if (empty($_POST['page'])) : ?>
+                                            <?php if (empty($_POST['page'])) : ?>
 
-                        </ul>
+                                                                </ul>
 
-                    <?php endif; ?>
+                                    <?php endif; ?>
 
-                <?php else : ?>
+                                <?php else : ?>
 
-                    <div id="message" class="info">
-                        <p><?php _e('Sorry, there was no activity found. Please try a different filter.', 'buddypress'); ?></p>
-                    </div>
+                                                    <div id="message" class="info">
+                                        <p><?php _e('Sorry, there was no activity found. Please try a different filter.', 'buddypress'); ?></p>
+                                    </div>
 
-                <?php endif; ?>
+                                <?php endif; ?>
 
-                <?php do_action('bp_after_activity_loop'); ?>
+                                <?php do_action('bp_after_activity_loop'); ?>
 
-                <form action="" name="activity-loop-form" id="activity-loop-form" method="post">
+                    <form action="" name="activity-loop-form" id="activity-loop-form" method="post">
 
-                    <?php wp_nonce_field('activity_filter', '_wpnonce_activity_filter'); ?>
+                                <?php wp_nonce_field('activity_filter', '_wpnonce_activity_filter'); ?>
 
-                </form>
-            </div>
-            <?php
-        }
+                                        </form>
+                        </div>
+                        <?php
+                    }
 
-    }
+                }
 
-    bp_register_group_extension('BP_activity_plus_images_tab_Extension');
+                //  bp_register_group_extension('BP_activity_plus_images_tab_Extension');
 
-    /**
-     *  * This function will enqueue the components css and javascript files
-     * only when the front group  page is displayed
-     */
-    function ls_bpfp_front_cssjs() {
+                /**
+                 *  * This function will enqueue the components css and javascript files
+                 * only when the front group  page is displayed
+                 */
+                function ls_bpfp_front_cssjs() {
         global $bp;
         //if we're on a group page
         if ($bp->current_component == $bp->groups->slug) {
@@ -328,7 +319,4 @@ if (class_exists('BP_Group_Extension')) : // Recommended, to prevent problems du
 
 //changed with chriskeeble suggestion
     add_action('wp_enqueue_scripts', 'ls_bpfp_front_cssjs');
-
-
 endif;
-?>
