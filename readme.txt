@@ -4,7 +4,7 @@ Donate link:
 Tags: Buddypress, tabs, activity
 Requires at least: 3.4 and BP 1.6
 Tested up to: 3.5.2 and BP BP 1.7.2
-Stable tag: 2.3
+Stable tag: 2.4
 License:  GNU General Public License 3.0 or newer (GPL) 
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -19,13 +19,21 @@ Adds tabs in groups for Buddypress activity plus uploaded videos, images, links.
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Frequently Asked Questions ==
-
+1. How can I hide a tab?
+Answer: On ls_bpfb_tabs.php: 
+- For hiding the Links tab,     comment the line 106  the bp_register_group_extension('BP_activity_plus_links_tab_Extension');
+- For hiding the videos tab, comment the line 205  bp_register_group_extension('BP_activity_plus_videos_tab_Extension');
+- For hiding the Images tab,    comment the line 304  bp_register_group_extension('BP_activity_plus_images_tab_Extension'
 
 == Screenshots ==
 
 1. New tabs (Links, Videos, Images) in group navigation bar
 
 == Changelog ==
+= 2.4 (9.9.2013) =
+* Fix a typo
+* Added FAQ how to hide a tab
+
 = 2.3 (5.9.2013) =
 * Fix a bug which broke the RSS feeds
 
