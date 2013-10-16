@@ -3,8 +3,8 @@
   Plugin Name: LS Buddypress Activity plus tabs extension
   PLugin URI: http://lenasterg.wordpress.com/
   Description: Adds tabs in groups for Buddypress activity plus uploaded videos, images, links. Requires Buddypress activity plus plugin (http://wordpress.org/plugins/buddypress-activity-plus/) to by installed.
-  Version: 2.4
-  Revision Date: September 9, 2013
+  Version: 2.5
+  Revision Date: October 16, 2013
   Requires at least: WP 3.5.1, BuddyPress 1.7
   Tested up to: WP 3.5.2, BuddyPress 1.7.2
   License:  GNU General Public License 3.0 or newer (GPL) http://www.gnu.org/licenses/gpl.html

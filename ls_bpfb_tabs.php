@@ -17,7 +17,7 @@ if (class_exists('BP_Group_Extension')) : // Recommended, to prevent problems du
 
         function __construct() {
             global $bp;
-            if (bp_has_activities('search_terms=bpfb_link')) {
+            if (bp_has_activities('object=groups&action=activity_update&search_terms=bpfb_link')) {
                 global $activities_template;
             }
 
@@ -47,7 +47,7 @@ if (class_exists('BP_Group_Extension')) : // Recommended, to prevent problems du
                 <h4><?php echo esc_attr($this->name); ?></h4>
                 <?php
                 do_action('bp_before_activity_loop');
-                if (bp_has_activities('search_terms=bpfb_link')) :
+                if (bp_has_activities('object=groups&action=activity_update&search_terms=bpfb_link')) :
                     /* Show pagination if JS is not enabled, since the "Load More" link will do nothing */
                     ?>
                 <noscript>
@@ -116,7 +116,7 @@ if (class_exists('BP_Group_Extension')) : // Recommended, to prevent problems du
 
         function __construct() {
             global $bp;
-            if (bp_has_activities('search_terms=bpfb_video')) {
+            if (bp_has_activities('object=groups&action=activity_update&search_terms=bpfb_video')) {
                 global $activities_template;
             }
 
@@ -146,7 +146,7 @@ if (class_exists('BP_Group_Extension')) : // Recommended, to prevent problems du
                 <h4><?php echo esc_attr($this->name); ?></h4>
                 <?php
                 do_action('bp_before_activity_loop');
-                if (bp_has_activities('search_terms=bpfb_video')) :
+                if (bp_has_activities('object=groups&action=activity_update&search_terms=bpfb_video')) :
                     /* Show pagination if JS is not enabled, since the "Load More" link will do nothing */
                                 ?>
                                     <noscript>
@@ -215,7 +215,7 @@ if (class_exists('BP_Group_Extension')) : // Recommended, to prevent problems du
 
         function __construct() {
             global $bp;
-            if (bp_has_activities('search_terms=bpfb_image')) {
+            if (bp_has_activities('object=groups&action=activity_update&search_terms=bpfb_image')) {
                 global $activities_template;
             }
 
@@ -243,7 +243,7 @@ if (class_exists('BP_Group_Extension')) : // Recommended, to prevent problems du
                 <h4><?php echo esc_attr($this->name) ?></h4>
                 <?php
                 do_action('bp_before_activity_loop');
-                if (bp_has_activities('search_terms=bpfb_image')) :
+                if (bp_has_activities('object=groups&action=activity_update&search_terms=bpfb_image')) :
 
                     /* Show pagination if JS is not enabled, since the "Load More" link will do nothing */
                     ?>

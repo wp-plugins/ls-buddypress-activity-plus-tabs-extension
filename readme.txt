@@ -1,10 +1,10 @@
 ﻿=== LS Buddypress Activity plus tabs extension ===
-Contributors: Stergatu Lena <stergatu@cti.gr>
-Donate link:  
-Tags: Buddypress, tabs, activity
+Contributors: lenasterg
+Donate link:  https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4VCLDW4BFW6L
+Tags: Buddypress, group, activity, tabs, extension
 Requires at least: 3.4 and BP 1.6
 Tested up to: 3.5.2 and BP BP 1.7.2
-Stable tag: 2.4
+Stable tag: 2.5
 License:  GNU General Public License 3.0 or newer (GPL) 
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -30,6 +30,10 @@ Answer: On ls_bpfb_tabs.php:
 1. New tabs (Links, Videos, Images) in group navigation bar
 
 == Changelog ==
+
+= 2.5 (16.10.2013) =
+ * Improved  syntax for lighter mysql queries
+
 = 2.4 (9.9.2013) =
 * Fix a typo
 * Added FAQ how to hide a tab
