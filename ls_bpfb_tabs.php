@@ -59,8 +59,8 @@ if (class_exists('BP_Group_Extension')) : // Recommended, to prevent problems du
                                 <?php
                             endif;
                             while (bp_activities()) : bp_the_activity();
-                                locate_template(array('activity/entry.php'), true, false);
-                            endwhile;
+                                bp_locate_template(array('activity/entry.php'), true, false);
+                    endwhile;
                             if (bp_activity_has_more_items()) :
                                 ?>
 
@@ -155,8 +155,8 @@ if (class_exists('BP_Group_Extension')) : // Recommended, to prevent problems du
                                 <?php
                             endif;
                             while (bp_activities()) : bp_the_activity();
-                                locate_template(array('activity/entry.php'), true, false);
-                            endwhile;
+                                bp_locate_template(array('activity/entry.php'), true, false);
+                    endwhile;
                             if (bp_activity_has_more_items()) :
                                 ?>
 
@@ -257,8 +257,8 @@ if (class_exists('BP_Group_Extension')) : // Recommended, to prevent problems du
                         <?php endif; ?>
 
                         <?php while (bp_activities()) : bp_the_activity(); ?>
-
-                            <?php locate_template(array('activity/entry.php'), true, false); ?>
+                            
+                                                    <?php bp_locate_template(array('activity/entry.php'), true, false); ?>
 
                         <?php endwhile; ?>
 
