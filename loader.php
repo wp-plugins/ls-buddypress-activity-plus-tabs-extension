@@ -8,7 +8,7 @@
   Requires at least: WP 3.5.1, BuddyPress 1.7
   Tested up to: WP 3.6.1, BuddyPress 1.8.1
   License:  GNU General Public License 3.0 or newer (GPL) http://www.gnu.org/licenses/gpl.html
-  Author: Lena Stergatu
+  Author: Lena Stergatu, NTS on cti.gr
   Author URI: http://lenasterg.wordpress.com)
 
 
