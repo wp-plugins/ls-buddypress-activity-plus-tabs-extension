@@ -1,6 +1,5 @@
 === LS Buddypress Activity plus tabs extension ===
-Contributors: lenasterg
-Donate link:  https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4VCLDW4BFW6L
+Contributors: lenasterg, NTS on cti.gr
 Tags: Buddypress, group, activity, tabs, extension
 Requires at least: 3.4 and BP 1.6
 Tested up to: 3.6.1 and BP BP 1.8.1
