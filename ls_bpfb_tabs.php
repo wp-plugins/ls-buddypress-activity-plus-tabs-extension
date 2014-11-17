@@ -39,7 +39,11 @@ if (class_exists('BP_Group_Extension')) : // Recommended, to prevent problems du
             global $bp;
             ?>
             <div class="info-group">
-                <h4><?php echo esc_attr($this->name); ?></h4>
+                 <h4><?php echo esc_attr( $this->name ); ?>
+		    <?php if ( bp_group_is_member() ) : ?>
+			<div class="generic-button group-button public"><a href="<?php bp_group_permalink(); ?>#whats-new-content" class="generic-button" id="bpfb_add_link"><?php _e( "Add New", 'buddypress' ); ?></a></div>
+		    <?php endif; ?>
+	        </h4>
                 <?php
                 do_action('bp_before_activity_loop');
                 if ($this->countLinks > 0) :
@@ -136,7 +140,11 @@ if (class_exists('BP_Group_Extension')) : // Recommended, to prevent problems du
             global $bp;
             ?>
             <div class="info-group">
-                <h4><?php echo esc_attr($this->name); ?></h4>
+                 <h4><?php echo esc_attr( $this->name ); ?>
+		    <?php if ( bp_group_is_member() ) : ?>
+			<div class="generic-button group-button public"><a href="<?php bp_group_permalink(); ?>#whats-new-content" class="generic-button" id="bpfb_add_video"><?php _e( "Add New", 'buddypress' ); ?></a></div>
+		    <?php endif; ?>
+	        </h4>
                 <?php
                 do_action('bp_before_activity_loop');
                 if ($this->countVideos > 0) :
@@ -235,7 +243,11 @@ if (class_exists('BP_Group_Extension')) : // Recommended, to prevent problems du
         global $bp;
         ?>
         <div class="info-group">
-            <h4><?php echo esc_attr($this->name) ?></h4>
+            <h4><?php echo esc_attr($this->name) ?>
+			 <?php if ( bp_group_is_member() ) : ?>
+			<div class="generic-button group-button public"><a href="<?php bp_group_permalink(); ?>#whats-new-content" class="generic-button" id="bpfb_add_image"><?php _e( "Add New", 'buddypress' ); ?></a></div>
+		    <?php endif; ?>
+	        </h4>
             <?php
             do_action('bp_before_activity_loop');
             if ($this->countImages > 0) :
