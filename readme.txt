@@ -31,7 +31,7 @@ Answer: On ls_bpfb_tabs.php:
 
 == Changelog ==
 = 2.8 (17.11.2014) =
- * Fix for not Buddypress ready themes
+ * "Add new" buttons added 
 
 = 2.7 (22.10.2013) =
  * Fix for not Buddypress ready themes
