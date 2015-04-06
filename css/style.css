@@ -7,3 +7,6 @@ li#nav-videos-groups-li,li#nav-videos-personal-li {
 li#nav-images-groups-li,li#nav-images-personal-li {
    background: url(../images/image_spearmint_16x16.png) no-repeat 87% 52%;
 }
+
+.ls_bpfb_links_widget .bpfb_link_preview_body {width:85%}
+.ls_bpfb_links_widget .bpfb_final_link .bpfb_link_contents {width: 85%}
