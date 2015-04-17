@@ -309,7 +309,7 @@ if ( class_exists( 'BP_Group_Extension' ) ) : // Recommended, to prevent problem
 
 		}
 
-		//  bp_register_group_extension('BP_activity_plus_images_tab_Extension');
+		  bp_register_group_extension('BP_activity_plus_images_tab_Extension');
 
 		/**
 		 *  * This function will enqueue the components css and javascript files

@@ -3,7 +3,7 @@ Contributors: lenasterg, NTS on cti.gr
 Tags: Buddypress, group, activity, tabs, extension
 Requires at least: 3.4 and BP 1.6
 Tested up to: 4.1.1 and BP 2.1.1
-Stable tag: 2.9
+Stable tag: 2.9.1
 License:  GNU General Public License 3.0 or newer (GPL)
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -30,6 +30,9 @@ Answer: On ls_bpfb_tabs.php:
 1. New tabs (Links, Videos, Images) in group navigation bar
 
 == Changelog ==
+= 2.9.1 (17 April 2015) =
+* Fix a typo which prevented the image tab to show up.
+
 = 2.9 (6 April 2015) =
 * Add widget for current group
 
